@@ -1,3 +1,5 @@
+import ProjectInterface from '../components/Project/ProjectInterface'
+
 export default function Projects() {
-  return <div>Projects</div>
+  return <ProjectInterface />
 }
