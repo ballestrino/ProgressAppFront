@@ -5,6 +5,9 @@ export default {
     extend: {
       scale: {
         101: '1.01'
+      },
+      fontFamily: {
+        Montserrat: ['Montserrat', 'sans-serif']
       }
     }
   },
