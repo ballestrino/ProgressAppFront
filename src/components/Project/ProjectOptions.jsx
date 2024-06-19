@@ -21,8 +21,16 @@ export default function ProjectOptions() {
 
   const refBox = useRef(null)
 
+  const handlePropagation = e => {
+    e.stopPropagation()
+  }
+
   return (
-    <div className='flex justify-center items-center relative' ref={refBox}>
+    <div
+      className='flex justify-center items-center relative z-10'
+      ref={refBox}
+      onClick={handlePropagation}
+    >
       <button
         className=''
         onClick={() => setShowOptions(prev => (prev ? false : true))}
