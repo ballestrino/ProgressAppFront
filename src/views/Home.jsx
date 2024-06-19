@@ -1,5 +1,5 @@
-import HomeInterface from '../components/Home/HomeInterface'
+import HomeUI from '../components/Home/HomeUI'
 
 export default function Home() {
-  return <HomeInterface />
+  return <HomeUI />
 }

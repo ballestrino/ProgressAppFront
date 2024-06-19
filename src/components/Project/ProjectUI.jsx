@@ -1,5 +1,5 @@
 import Project from './Project'
-export default function ProjectInterface() {
+export default function ProjectUI() {
   const project = [
     {
       id: 1,

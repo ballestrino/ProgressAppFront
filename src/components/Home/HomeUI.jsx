@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-export default function HomeInterface() {
+export default function HomeUI() {
   return (
     <div className='flex flex-col w-screen h-screen items-center justify-center'>
       <div className='flex flex-col items-center justify-center mb-12 h-1/2 w-1/2 gap-5'>

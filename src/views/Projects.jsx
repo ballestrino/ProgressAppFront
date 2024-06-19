@@ -1,5 +1,5 @@
-import ProjectInterface from '../components/Project/ProjectInterface'
+import ProjectUI from '../components/Project/ProjectUI'
 
 export default function Projects() {
-  return <ProjectInterface />
+  return <ProjectUI />
 }

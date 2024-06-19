@@ -1,5 +1,5 @@
-import GoalInterface from '../components/Goal/GoalInterface'
+import GoalUI from '../components/Goal/GoalUI'
 
 export default function Goals() {
-  return <GoalInterface />
+  return <GoalUI />
 }

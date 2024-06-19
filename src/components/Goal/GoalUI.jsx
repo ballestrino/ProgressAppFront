@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router'
 import Goal from './Goal'
 
-export default function GoalInterface() {
+export default function GoalUI() {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const id = queryParams.get('id') // id para obtener las metas de un proyecto
