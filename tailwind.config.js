@@ -8,6 +8,12 @@ export default {
       },
       fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif']
+      },
+      transitionDuration: {
+        400: '400ms'
+      },
+      transitionDelay: {
+        400: '400ms'
       }
     }
   },
