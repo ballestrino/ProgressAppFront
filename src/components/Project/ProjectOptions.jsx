@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import DotsSvg from '../../assets/threeDots.svg'
 import OptionsDropdown from './OptionsDropdown.jsx'
+import PropTypes from 'prop-types'
 
-export default function ProjectOptions() {
+export default function ProjectOptions({ project }) {
   const [showOptions, setShowOptions] = useState(false)
 
   useEffect(() => {
@@ -39,10 +40,19 @@ export default function ProjectOptions() {
       </button>
       {showOptions ? (
         <OptionsDropdown
+          project={project}
           showOptions={showOptions}
           setShowOptions={setShowOptions}
         />
       ) : null}
     </div>
   )
+}
+
+ProjectOptions.propTypes = {
+  project: PropTypes.shape({
+    project_id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    progress: PropTypes.number.isRequired
+  }).isRequired
 }

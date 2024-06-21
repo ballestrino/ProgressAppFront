@@ -20,8 +20,8 @@ export default function ProjectProvider({ children }) {
       .post('http://localhost:3000/projects', {
         title: title
       })
-      .then(res => setProjects([...projects, res.data]))
       .catch(err => console.log(err))
+    refreshProjects()
   }
 
   const refreshProjects = () => {
@@ -33,9 +33,9 @@ export default function ProjectProvider({ children }) {
 
   const deleteProject = id => {
     axios.delete(`http://localhost:3000/projects/${id}`).then(res => {
+      console.log(res)
       if (res.status === 200) {
-        const newProjects = projects.filter(project => project.id !== id)
-        setProjects(newProjects)
+        refreshProjects()
       } else console.error('Error deleting the project')
     })
   }
@@ -47,16 +47,22 @@ export default function ProjectProvider({ children }) {
       })
       .then(res => {
         if (res.status === 200) {
-          const newProjects = projects.map(project =>
-            project.id === id ? { ...project, title: title } : project
-          )
-          setProjects(newProjects)
+          refreshProjects()
         } else console.error('Error updating the project')
       })
   }
 
   return (
-    <ProjectContext.Provider value={{ projects, setProjects }}>
+    <ProjectContext.Provider
+      value={{
+        projects,
+        setProjects,
+        createProject,
+        refreshProjects,
+        deleteProject,
+        updateProject
+      }}
+    >
       {children}
     </ProjectContext.Provider>
   )
