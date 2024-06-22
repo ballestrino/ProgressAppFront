@@ -25,5 +25,6 @@ export default function OptionsDropdown({ project }) {
 OptionsDropdown.propTypes = {
   project: PropTypes.shape({
     project_id: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  setEditing: PropTypes.func.isRequired
 }

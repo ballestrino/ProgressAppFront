@@ -40,12 +40,14 @@ export default function ProjectProvider({ children }) {
     })
   }
 
-  const updateProject = (id, title) => {
+  const updateProject = (id, newTitle) => {
     axios
-      .put(`http://localhost:3000/projects/${id}`, {
-        title: title
+      .put(`http://localhost:3000/projects`, {
+        project_id: id,
+        newTitle: newTitle
       })
       .then(res => {
+        console.log(res)
         if (res.status === 200) {
           refreshProjects()
         } else console.error('Error updating the project')
