@@ -3,7 +3,6 @@ import ProjectOptions from './ProjectOptions'
 import ProjectProgress from './ProjectProgress'
 import { useNavigate } from 'react-router'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
 export default function Project({ project }) {
   const navigate = useNavigate()
