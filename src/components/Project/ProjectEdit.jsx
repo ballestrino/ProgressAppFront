@@ -12,6 +12,7 @@ export default function ProjectEdit({ project }) {
   }
 
   const handleConfirm = () => {
+    if (newTitle === project.title) return // performance
     updateProject(project.project_id, newTitle)
   }
 
