@@ -31,8 +31,17 @@ export default function GoalsProvider({ children }) {
     setGoals([...goals, { title, description, completed }])
   }
 
+  const updateGoal = async (project_id, id, title, description) => {
+    await axios
+      .put(`http://localhost:3000/goals/${id}`, { title, description })
+      .then(res => {
+        if (res.status === 200) getGoals(project_id)
+        else return
+      })
+  }
+
   return (
-    <GoalsContext.Provider value={{ goals, getGoals, createGoal }}>
+    <GoalsContext.Provider value={{ goals, getGoals, createGoal, updateGoal }}>
       {children}
     </GoalsContext.Provider>
   )

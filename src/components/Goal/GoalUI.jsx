@@ -42,7 +42,7 @@ export default function GoalUI() {
             <GoalCreate project_id={id} setCreating={setCreating} />
           ) : null}
           {goals.map(goal => (
-            <Goal key={goal.goal_id} goal={goal} />
+            <Goal key={goal.goal_id} project_id={id} goal={goal} />
           ))}
         </section>
       </div>
