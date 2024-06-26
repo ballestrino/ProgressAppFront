@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import DotsSvg from '../../assets/threeDots.svg'
+import DotsSvg from '../../assets/icons/threeDots.svg'
 import OptionsDropdown from './OptionsDropdown.jsx'
 import PropTypes from 'prop-types'
 
