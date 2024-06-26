@@ -9,10 +9,8 @@ export default function Goal({ goal }) {
 
   useEffect(() => {
     if (isOpen) {
-      // Establece la altura a la altura natural del contenido
       contentRef.current.style.height = `70px`
     } else {
-      // Colapsa el contenido
       contentRef.current.style.height = '0px'
     }
   }, [isOpen])
@@ -55,7 +53,7 @@ export default function Goal({ goal }) {
 
 Goal.propTypes = {
   goal: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    goal_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
   }).isRequired

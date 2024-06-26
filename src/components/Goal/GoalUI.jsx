@@ -1,31 +1,23 @@
 import { useLocation, useNavigate } from 'react-router'
 import Goal from './Goal'
 import LeftShortArrow from '../../assets/icons/arrow-left-short.svg'
+import { useContext, useEffect, useState } from 'react'
+import { GoalsContext } from '../../context/GoalsProvider'
 
 export default function GoalUI() {
+  const { goals, getGoals } = useContext(GoalsContext)
+  const [projectTitle, setProjectTitle] = useState('')
+
   const location = useLocation()
   const navigate = useNavigate()
-  const queryParams = new URLSearchParams(location.search)
-  const id = queryParams.get('id') // id para obtener las metas de un proyecto
-  const title = queryParams.get('title')
 
-  const goals = [
-    {
-      id: 1,
-      title: 'Goal 1',
-      description: 'Description 1'
-    },
-    {
-      id: 2,
-      title: 'Goal 2',
-      description: 'Description 2'
-    },
-    {
-      id: 3,
-      title: 'Goal 3',
-      description: 'Description 3'
-    }
-  ]
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search)
+    const id = queryParams.get('id')
+    const title = queryParams.get('title')
+    getGoals(id)
+    setProjectTitle(title)
+  }, [])
 
   const handleReturn = () => {
     navigate('/projects')
@@ -38,11 +30,11 @@ export default function GoalUI() {
           <button alt='go back' onClick={handleReturn}>
             <img src={LeftShortArrow} alt='left arrow' className='w-5 h-5' />
           </button>
-          <h1 className='text-4xl'>{title}</h1>
+          <h1 className='text-4xl'>{projectTitle}</h1>
         </section>
         <section className='grid grid-cols-1 gap-y-5'>
           {goals.map(goal => (
-            <Goal key={goal.id} goal={goal} />
+            <Goal key={goal.goal_id} goal={goal} />
           ))}
         </section>
       </div>
